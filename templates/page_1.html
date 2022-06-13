@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect wallet</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+</head>
+
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: grid;
+        place-content: center;
+        background: rgba(0,0,0,.05);
+        font-family: 'Nunito';
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .onboard-container {
+        box-shadow: 10px 10px 30px rgba(0,0,0,.1);
+        border-radius: .7em;
+        padding: 4em;
+        background: white;
+        min-width: 500px;
+        text-align: center;
+    }
+
+    .onboard {
+        background-color: rgb(76, 0, 255);
+        color: white;
+        display: inline-block;
+        text-decoration: none;
+        padding: .7em;
+        text-align: center;
+        font-size: 1.3rem;
+        border-radius: .3em;
+        margin-top: 2em;
+        font-family: Calibri;
+    }
+
+    p {
+        font-size: 1.125rem;
+    }
+
+    
+    .title1 {
+        font-family: Ebrima;
+    }
+
+    .desc{
+        font-family: Calibri;
+    }
+
+</style>
+
+<body>
+    <div class="onboard-container">
+        <h1 class="title1">Connect your wallet</h1>
+        <p class="desc">Login or Sign up with Metamask</p>
+        <button onclick="login()" class="onboard">Connect wallet</button>
+    </div>
+    <script>
+        
+        const serverUrl = "https://usdth85icral.usemoralis.com:2053/server";
+        const appId = "Fhw9arAPOe4PInruwydMzi9rj3DGJKM6mATWpAvm";
+        Moralis.start({ serverUrl, appId });
+
+        async function login() {
+            
+            let user = Moralis.User.current();
+            if (!user) {
+                user = await Moralis.authenticate();
+            }
+            console.log("logged in user:", user);
+            window.location.href = "/home";
+        }
+        document.getElementById("btn-login").onclick = login;
+
+
+    </script>
+</body>
+</html>
+
+
+
+
