@@ -30,7 +30,7 @@
     .onboard-container {
         box-shadow: 10px 10px 30px rgba(0,0,1,.1);
         border-radius: .7em;
-        padding: 6em;
+        padding: 1.5em;
         background: white;
         min-width: 500px;
         text-align: center;
@@ -42,11 +42,11 @@
         color: white;
         display: inline-block;
         text-decoration: none;
-        padding: .9em 1.5em .9em 1.5em;
+        padding: 0.6em 0.8em;
         text-align: center;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         border-radius: .3em;
-        margin-top: 3em;
+        margin-top: 1.5em;
         font-family: Calibri;
     }
 
@@ -69,7 +69,7 @@
         border-radius: 20px;
         font-family: Calibri;
         width: 350px;
-        margin-top: 20px;
+        margin-top: 10px;
     }
 
     .nftDesc {
@@ -82,26 +82,34 @@
         height: 100px;
         margin-top: 12px;
     }
-    .fileNFT {
-        font-family: Arial;
-        font-size: 18px;
+    .fileTitle {
+        font-family: Calibri;
+        font-size: 16px;
     }
     .nftAsset {
-        width: 250px;
+        padding: 5px;
+        width: 300px;
         font-size: 15px;
-        font-family: Arial;
+        font-family: Calibri;
         text-align: center;
+        border: 1px solid #6e8999;
+        border-radius: 20px;
     }
+
 </style>
 
 <body>
 <div class="onboard-container">
-    <h1 class="title1">NFT Minter Page</h1>
-    <input class="nftName" type="text" placeholder="Enter NFT name"><br>
-    <input class="nftDesc" type="text" placeholder="Enter description"><br><br>
-    <h4 class="fileNFT">upload your NFT file</h4>
-    <input type="file" class="nftAsset" >
-    <br><button onclick="mint_nft()" class="onboard">Mint NFT</button>
+    <form action="/entry" method="post">
+        <h1 class="title1">NFT Minter Page</h1>
+        <input class="nftName" type="text" placeholder="Title"><br>
+        <input class="nftName" type="text" placeholder="Artist"><br>
+        <input class="nftName" type="text" placeholder="Price in ETH"><br>
+        <textarea class="nftDesc" placeholder="Description"></textarea>
+        <h4 class="fileTitle">Upload your NFT file here</h4>
+        <input type="file" class="nftAsset" >
+        <br><button onclick="mint_nft()" class="onboard">Mint NFT</button>
+    </form>
 </div>
     
 </body>
