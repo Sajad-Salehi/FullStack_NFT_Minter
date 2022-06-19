@@ -16,9 +16,20 @@ def home_page():
 
 @app.route("/nftMinter", methods=["GET", "POST"])
 def nft_minter():
+    
     if request.method == "POST":
-        entry_content = request.form
-        print(entry_content)
+        title = request.form.get('content1')
+        artist = request.form.get('content2')
+        price = request.form.get('content3')
+        description = request.form.get('content4')
+        NFT_info = {
+            'Title': title,
+            'Artist': artist,
+            'Price': price,
+            'description': description
+        }
+        print(NFT_info)
+        
     return render_template("page_3.html")
 
 if __name__ == '__main__':
