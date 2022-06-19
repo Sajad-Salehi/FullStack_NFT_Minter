@@ -5,7 +5,8 @@
     <title>NFT Minter</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
 </head>
 
 
@@ -99,16 +100,19 @@
 
 <body>
 <div class="onboard-container">
-    <form action="/entry" method="post">
+
+    <form action="/nftMinter" method="post" class="form">
         <h1 class="title1">NFT Minter Page</h1>
-        <input class="nftName" type="text" placeholder="Title"><br>
-        <input class="nftName" type="text" placeholder="Artist"><br>
-        <input class="nftName" type="text" placeholder="Price in ETH"><br>
-        <textarea class="nftDesc" placeholder="Description"></textarea>
+
+        <input class="nftName" type="text" placeholder="Title" name="content1" requierd><br>
+        <input class="nftName" type="text" placeholder="Artist" name="content2" required><br >
+        <input class="nftName" type="text" placeholder="Price in ETH" name="content3" required><br>
+        <textarea class="nftDesc" placeholder="Description" name="content4" required></textarea>
         <h4 class="fileTitle">Upload your NFT file here</h4>
-        <input type="file" class="nftAsset" >
-        <br><button onclick="mint_nft()" class="onboard">Mint NFT</button>
+        <input type="file" class="nftAsset" name="content5" required>
+        <br><button type="submit" class="onboard">Mint NFT</button>
     </form>
+
 </div>
     
 </body>
