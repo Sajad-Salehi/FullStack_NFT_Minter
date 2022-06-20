@@ -101,15 +101,17 @@
 <body>
 <div class="onboard-container">
 
-    <form action="/nftMinter" method="post" class="form">
+    <form action="/nftMinter" method="post" class="form" enctype="multipart/form-data">
         <h1 class="title1">NFT Minter Page</h1>
 
         <input class="nftName" type="text" placeholder="Title" name="content1" requierd><br>
-        <input class="nftName" type="text" placeholder="Artist" name="content2" required><br >
-        <input class="nftName" type="text" placeholder="Price in ETH" name="content3" required><br>
-        <textarea class="nftDesc" placeholder="Description" name="content4" required></textarea>
+        <input class="nftName" type="text" placeholder="Price in ETH" name="content4" required><br>
+        <input class="nftName" type="text" placeholder="Artist name" name="content2" required><br>
+        <input class="nftName" type="text" placeholder="Creator address" name="content3" required><br>
+        <textarea class="nftDesc" placeholder="Description" name="content5" required></textarea>
+
         <h4 class="fileTitle">Upload your NFT file here</h4>
-        <input type="file" class="nftAsset" name="content5" required>
+        <input type="file" class="nftAsset" name="file" id="file" required>
         <br><button type="submit" class="onboard">Mint NFT</button>
     </form>
 
