@@ -1,2 +1,2 @@
 # FullStack_NFT_Minter
-full stack NFT Minter Dapp using python, Flask, Solidity and IPFS
+full stack NFT Minter Dapp using Python, Flask, Solidity and IPFS
