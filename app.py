@@ -5,7 +5,7 @@ import ipfshttpclient
 from distutils.log import debug
 from pickle import TRUE
 from unicodedata import name
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 
 
 app = Flask(__name__)
@@ -53,9 +53,15 @@ def nft_minter():
         metadata_url = app.config['IPFS_FILE_URL'] + nft_json_info['Hash']
         print(metadata_url)
         os. remove('nft_json.json')
-        
+        return redirect(url_for('.nft_info', metadata_url=metadata_url))
     
     return render_template("page_3.html")
+
+
+@app.route("/nft_info")
+def nft_info():
+    _metadata = request.args['metadata_url']
+    return render_template("page_2.html", _metadata=_metadata)
 
 
 if __name__ == '__main__':
