@@ -1,17 +1,15 @@
+import os
+import json
+import ipfshttpclient
 from distutils.log import debug
 from pickle import TRUE
-import ipfshttpclient
-import json
-import os
+from unicodedata import name
 from flask import Flask, render_template, request
-from flask import *  
 from werkzeug.utils import secure_filename
+
 
 app = Flask(__name__)
 app.debug = True
-
-UPLOAD_FOLDER = 'static/uploads'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config.from_pyfile('config.py')
 
 @app.route("/login")
@@ -30,24 +28,30 @@ def nft_minter():
         creator = request.form.get('content3')
         price = request.form.get('content4')
         description = request.form.get('content5')
-        
         nft_file = request.files['file']  
-        nft_file_url = ""
+        
         
         client = ipfshttpclient.connect(app.config['IPFS_CONNECT_URL'])
-        filename = secure_filename(nft_file.filename)
-        print(filename)
-        '''nft_file.save(os.path.join(app.config['UPLOAD_FOLDER']))'''
-        x = client.add(nft_file)
-        print(x)              
+        file_info = client.add(nft_file)
+        nft_file_url = app.config['IPFS_FILE_URL'] + file_info['Hash']
+
+                   
         NFT_info = {
             'Title': title,
             'Price': price,
             'Artist_name': artistName,
             'Creator_addrs': creator,
-            'description': description,
-            'file_url': nft_file_url
+            'Description': description,
+            'Asset_url': nft_file_url
         }
+        
+        nft_json = json.dumps(NFT_info)
+        '''nft_json_info = client.add(nft_json)
+        metadata_url = app.config['IPFS_FILE_URL'] + nft_json_info['Hash']
+        print(metadata_url)'''
+        
+        _file = client.add('test.json')
+        print(_file, "\n\n\n", nft_json)
         
     return render_template("page_3.html")
 
