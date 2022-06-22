@@ -1,6 +1,5 @@
 import os
 import json
-from tkinter import OUTSIDE
 import ipfshttpclient
 from distutils.log import debug
 from pickle import TRUE
