@@ -1,11 +1,11 @@
 import os
 import json
+from tkinter import OUTSIDE
 import ipfshttpclient
 from distutils.log import debug
 from pickle import TRUE
 from unicodedata import name
 from flask import Flask, render_template, request
-from werkzeug.utils import secure_filename
 
 
 app = Flask(__name__)
@@ -45,14 +45,16 @@ def nft_minter():
             'Asset_url': nft_file_url
         }
         
-        nft_json = json.dumps(NFT_info)
-        '''nft_json_info = client.add(nft_json)
+        with open('nft_json.json', 'w') as nft_json:
+            json.dump(NFT_info, nft_json, indent=7)
+        
+        print(nft_json)
+        nft_json_info = client.add('nft_json.json')
         metadata_url = app.config['IPFS_FILE_URL'] + nft_json_info['Hash']
-        print(metadata_url)'''
+        print(metadata_url)
+        os. remove('nft_json.json')
         
-        _file = client.add('test.json')
-        print(_file, "\n\n\n", nft_json)
-        
+    
     return render_template("page_3.html")
 
 
