@@ -16,14 +16,14 @@ def mint_token(metadata_url):
     rinkeby_chain_id = 4
     private_key = os.getenv('PRIVATE_KEY')
     provider_url = os.getenv('WEB3_PROVIDER')
-    wallet_address = '0xB268C07881a418D0BcADCF7204CeBc6D68A54904'
+    wallet_address = ''
 
 
     # connecting to the infura http provier and create contract
     w3 = Web3(Web3.HTTPProvider(provider_url))
     w3.middleware_onion.inject(geth_poa_middleware, layer=0)
     nonce = w3.eth.getTransactionCount(wallet_address)
-    contract_address = '0xE7150AB765764717A5dCaBa5cd757D5FB0Eb22Ab'
+    contract_address = ''
     Nft_Minter = w3.eth.contract(address=contract_address, abi=abi)
 
 
