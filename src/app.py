@@ -1,8 +1,9 @@
 import os
+import sys
 import json
+from black import main
 import ipfshttpclient
 from distutils.log import debug
-from pickle import TRUE
 from unicodedata import name
 from flask import Flask, render_template, request, redirect, url_for
 
@@ -23,9 +24,8 @@ def nft_minter():
     if request.method == "POST":
         
         title = request.form.get('content1')
-        artistName = request.form.get('content2')
+        artist = request.form.get('content2')
         creator = request.form.get('content3')
-        price = request.form.get('content4')
         description = request.form.get('content5')
         nft_file = request.files['file']  
         
@@ -36,12 +36,10 @@ def nft_minter():
 
                    
         NFT_info = {
-            'Title': title,
-            'Price': price,
-            'Artist_name': artistName,
-            'Creator_addrs': creator,
-            'Description': description,
-            'Asset_url': nft_file_url
+            "name": title,
+            "description": description,
+            "image": nft_file_url,
+            "attributes": [{}]
         }
         
         with open('nft_json.json', 'w') as nft_json:
@@ -50,7 +48,7 @@ def nft_minter():
         print(nft_json)
         nft_json_info = client.add('nft_json.json')
         metadata_url = app.config['IPFS_FILE_URL'] + nft_json_info['Hash']
-        print(metadata_url)
+        print(metadata_url, nft_json_info['Hash'])
         os. remove('nft_json.json')
         return redirect(url_for('.nft_info', metadata_url=metadata_url))
     
