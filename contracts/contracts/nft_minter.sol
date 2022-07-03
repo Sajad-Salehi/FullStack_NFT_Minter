@@ -12,13 +12,18 @@ contract nftMinter is ERC721URIStorage {
 
     constructor() ERC721("SOREN NFT", "SOREN") {}
 
-    function mintNFT(address player, string memory tokenURI) public returns (uint256) {
+    function mintNFT(string memory tokenURI) public returns (uint256) {
 
         uint256 newItemId = _tokenIds.current();
-        _mint(player, newItemId);
+        _mint(msg.sender, newItemId);
         _setTokenURI(newItemId, tokenURI);
 
         _tokenIds.increment();
         return newItemId;
+    }
+
+    function getItemId() public view returns(uint256) {
+        uint256 id = _tokenIds.current();
+        return id;
     }
 }
