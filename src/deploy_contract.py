@@ -20,7 +20,7 @@ def main():
     rinkeby_chain_id = 4
     private_key = os.getenv('PRIVATE_KEY')
     provider_url = os.getenv('WEB3_PROVIDER')
-    wallet_address = '0x34Ba01fA02EDc80a4F2f2AaEE077faaf6d06E342'
+    wallet_address = ''
 
 
     # connecting to the infura http provier and then create our contract 
