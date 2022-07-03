@@ -5,6 +5,7 @@ from black import main
 import ipfshttpclient
 from distutils.log import debug
 from unicodedata import name
+from mint_nft import mint_token
 from flask import Flask, render_template, request, redirect, url_for
 
 
@@ -25,7 +26,6 @@ def nft_minter():
         
         title = request.form.get('content1')
         artist = request.form.get('content2')
-        creator = request.form.get('content3')
         description = request.form.get('content5')
         nft_file = request.files['file']  
         
@@ -50,7 +50,9 @@ def nft_minter():
         metadata_url = app.config['IPFS_FILE_URL'] + nft_json_info['Hash']
         print(metadata_url, nft_json_info['Hash'])
         os. remove('nft_json.json')
-        return redirect(url_for('.nft_info', metadata_url=metadata_url))
+
+        opensea_url = mint_token(metadata_url)
+        return redirect(url_for('.nft_info', metadata_url=opensea_url))
     
     return render_template("page_3.html")
 
