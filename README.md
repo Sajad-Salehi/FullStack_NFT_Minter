@@ -93,3 +93,7 @@ To get started with Brownie:
 * ["Getting Started with web3.py"](https://medium.com/geekculture/interacting-with-ethereum-network-in-python-using-web3-py-part-4-73ee4c978626) web3.py quickstart
 * ["Introduction to ERC721 standard"](https://medium.com/blockchannel/walking-through-the-erc721-full-implementation-72ad72735f3c) ERC721 standard tutrial
 * ["OpenZeppelin libraries docs"](https://docs.openzeppelin.com/contracts/4.x/)OpenZeppelin contracts documentation
+
+## License
+
+This project is licensed under the [MIT license](LICENSE).
