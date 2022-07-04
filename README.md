@@ -81,3 +81,15 @@ and use this command to run the app
 cd src
 flask run
 ```
+
+## Resources
+
+To get started with Brownie:
+
+* ["Getting Started with Brownie"](https://medium.com/@iamdefinitelyahuman/getting-started-with-brownie-part-1-9b2181f4cb99) is a good tutorial to help you familiarize yourself with Brownie.
+* For more in-depth information, read the [Brownie documentation](https://eth-brownie.readthedocs.io/en/stable/).
+* ["Getting Started with Flask"](https://flask.palletsprojects.com/en/2.1.x/quickstart/) a quickstart for flask
+* ["Getting Started with IPFS"](https://medium.com/python-pandemonium/getting-started-with-python-and-ipfs-94d14fdffd10) getting started with python and ipfs
+* ["Getting Started with web3.py"](https://medium.com/geekculture/interacting-with-ethereum-network-in-python-using-web3-py-part-4-73ee4c978626) web3.py quickstart
+* ["Introduction to ERC721 standard"](https://medium.com/blockchannel/walking-through-the-erc721-full-implementation-72ad72735f3c) ERC721 standard tutrial
+* ["OpenZeppelin libraries docs"](https://docs.openzeppelin.com/contracts/4.x/)OpenZeppelin contracts documentation
