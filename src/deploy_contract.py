@@ -20,7 +20,7 @@ def main():
     rinkeby_chain_id = 4
     private_key = os.getenv('PRIVATE_KEY')
     provider_url = os.getenv('WEB3_PROVIDER')
-    wallet_address = ''
+    wallet_address = '0xB268C07881a418D0BcADCF7204CeBc6D68A54904'
 
 
     # connecting to the infura http provier and then create our contract 
@@ -43,3 +43,4 @@ def main():
     print(trx_recipt.contractAddress)
     return trx_recipt.contractAddress
 
+main()
