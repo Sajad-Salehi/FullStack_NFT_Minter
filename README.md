@@ -3,8 +3,8 @@
 
 <br/><br/>
 <p align="center">
-<img src="https://github.com/Sajad-Salehi/FullStack_NFT_Minter/blob/main/image/home.png" width="500" height="300">
-<img src="https://github.com/Sajad-Salehi/FullStack_NFT_Minter/blob/main/image/nft3.png" width="500" height="300">
+<img src="https://github.com/Sajad-Salehi/FullStack_NFT_Minter/blob/main/image/home.png" width="500" height="270">
+<img src="https://github.com/Sajad-Salehi/FullStack_NFT_Minter/blob/main/image/nft3.png" width="500" height="270">
 </p>
 
 ## Prerequisites
@@ -13,6 +13,8 @@ Please install or have installed the following:
 
 - [nodejs and npm](https://nodejs.org/en/download/)
 - [python](https://www.python.org/downloads/)
+- [metamask](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjtl7Oi6N_4AhWei_0HHbjzDH4QjBB6BAgHEAE&url=https%3A%2F%2Fmetamask.io%2Fdownload%2F&usg=AOvVaw049ASZIf5umKu9KN8vjUeH)
+
 ## Installation
 
 [Install virtualenv](https://virtualenv.pypa.io/en/latest/installation.html), if you haven't already. Here is a simple way to install venv.
@@ -28,60 +30,53 @@ pipx install virtualenv
 virtualenv --help
 ```
 
-Create a Virtual Environments
+Create a Virtual Environments and active venv
 ```bash
 python3 -m virtualenv venv
-```
-
-Then active venv
-```bash
 cd venv/bin
 source activate
 ```
 
-After that you need install flask and web3.py
+After that you need install flask, web3.py and ipfs that we're going to use it to store our metadata 
 ```bash
 pip install web3
 pip install flask
-```
-
-Or, in linux:
-```bash
-sudo apt install python3-flask
-```
-
-and finally you need to install ipfs http client 
-```bash
 pip install ipfshttpclient
+pip install eth-brownie
 ```
+
 
 # Usage
-Clone this repository, and run this command to initalize ipfs:
+Run this command to initalize ipfs:
 ```bash
-ipfs dameon
+ipfs daemon
+export IPFS_CONNECT_URL=""
 ```
 
-Then go to src/config.py and set (IPFS_CONNECT_URL and IPFS_FILE_URL),
-You also need to export your private_key and web_provider
-
-after that you can deploy your contract with brownie or web3.py
+First clone this repo and after that, you need to deploy the smart contract with brownie or web3.py
 it's up to you, the easiest way is to use brownie.
 
-deploy using web3.py:
+1. Deploy using web3.py:
 ```bash
 cd src
 python3 deploy_contract.py
 ```
 
-using brownie:
+2. Deploy using brownie:
+''you can use other network instead of rinkeby''
 ```bash
-pipx install eth-brownie
 cd contracts
-brownie run scripts/deploy.py --network <>
+brownie run scripts/deploy.py --network rinkeby
 ```
 
-greate! you've deployed the  smart contract now copy the contract address and put it in mint_nft.py
-and finally you can run your dapp with this command:
+Now you need to set your private_key and web3_provider(use Infura or Alchemy)
+```bash
+export WEB3_PROVIDER=""
+export PRIVATE_KEY=""
+```
+
+Then go to the src/mint_token.py, set your smart contract address 
+and use this command to run the app
 ```bash
 cd src
 flask run
