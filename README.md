@@ -49,8 +49,8 @@ pip install eth-brownie
 # Usage
 Run this command to initalize ipfs:
 ```bash
-ipfs daemon
-export IPFS_CONNECT_URL=""
+ipfs daemon 
+export IPFS_CONNECT_URL= "Connect_url"
 ```
 
 First clone this repo and after that, you need to deploy the smart contract with brownie or web3.py
@@ -71,8 +71,8 @@ brownie run scripts/deploy.py --network rinkeby
 
 Now you need to set your private_key and web3_provider(use Infura or Alchemy)
 ```bash
-export WEB3_PROVIDER=""
-export PRIVATE_KEY=""
+export WEB3_PROVIDER= "Web3_provider"
+export PRIVATE_KEY= "Private_key"
 ```
 
 Then go to the src/mint_token.py, set your smart contract address 
