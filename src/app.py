@@ -14,10 +14,6 @@ app = Flask(__name__)
 app.debug = True
 app.config.from_pyfile('config.py')
 
-@app.route("/login")
-def connect_wallet():
-    return render_template("page_1.html")
-    
 
 
 @app.route("/nftMinter", methods=["GET", "POST", "PUT"])
