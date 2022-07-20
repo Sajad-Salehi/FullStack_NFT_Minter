@@ -1,5 +1,7 @@
 # FullStack_NFT_Minter
-<h3>I have created this full stack NFT Minter Dapp using Python, Flask, Solidity and IPFS that can help you to create your NFTs automatically and very fast</h3>
+<h3>Full stack NFT Minter Dapp using Python, Flask, Solidity and IPFS that can help you to create your NFTs automatically</h3>
+<h5>What is a Minter NFT?
+A simple UI where you can input a link to your digital asset, a title, and a description</h5>
 
 <br/><br/>
 <p align="center">
