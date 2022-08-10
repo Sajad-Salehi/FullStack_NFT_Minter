@@ -13,7 +13,6 @@ A simple UI where you can input a link to your digital asset, a title, and a des
 
 Please install or have installed the following:
 
-- [nodejs and npm](https://nodejs.org/en/download/)
 - [python](https://www.python.org/downloads/)
 - [metamask](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjtl7Oi6N_4AhWei_0HHbjzDH4QjBB6BAgHEAE&url=https%3A%2F%2Fmetamask.io%2Fdownload%2F&usg=AOvVaw049ASZIf5umKu9KN8vjUeH)
 
